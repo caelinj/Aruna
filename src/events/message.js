@@ -13,15 +13,15 @@ module.exports = async (client, msg) => {
 
     command.beforeRun(msg, args).then((resolves) => {
         command.execute(msg, args).catch(err => {
-            m.react('❌');
+            msg.react('❌');
     
-            m.channel.send(err, { code: 'js' });
+            msg.channel.send(err, { code: 'js' });
             console.error(err);
         });
     }).catch(err => {
-        m.react('❌');
+        msg.react('❌');
 
-        m.channel.send(err, { code: 'js' });
+        msg.channel.send(err, { code: 'js' });
         console.error(err);
     });
 }
