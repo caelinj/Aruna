@@ -11,7 +11,7 @@ module.exports = async (client, msg) => {
     const command = client.commands.get(commandName) || client.commands.find(c => c.aliases && c.aliases.includes(commandName));
     if (!command) return;
 
-    command.beforeRun.then((resolves) => {
+    command.beforeRun(msg, args).then((resolves) => {
         command.run(msg, args).catch(err => {
             m.react('❌');
     
