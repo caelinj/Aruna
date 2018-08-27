@@ -20,7 +20,8 @@ module.exports = class ArunaClient extends Client {
             if (!cmd.endsWith('.js')) return;
         
             try {
-                const file = require('.' + cmdDir + '/' + cmd);
+                let cmdFile = require('.' + cmdDir + '/' + cmd);
+                const file = new cmdFile();
                 this.commands.set(file.name, file);
 
                 console.info(`Loaded commands/${file.name}`);
