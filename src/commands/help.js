@@ -19,9 +19,19 @@ module.exports = class HelpCommand extends Command {
             beforeRun: async function (msg, args) {
                 if (!args) this.objects.helpType = 0
                 else this.objects.helpType = 1;
+
+                return {};
             },
             execute: async function (msg, args) {
-                // code..
+                const { MessageEmbed } = require('discord.js');
+
+                const HelpEmbed = new MessageEmbed()
+
+                .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
+
+                .setFooter(`Help requested by ${msg.author.tag}`)
+
+                return msg.channel.send({ embed: HelpEmbed });
             },
         });
     }
