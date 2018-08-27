@@ -18,16 +18,15 @@ module.exports = class HelpCommand extends Command {
             },
     
             beforeRun: async function (msg, args) {
-                if (!args) this.objects.helpType = 0
+                if (!args.length) this.objects.helpType = 0
                 else this.objects.helpType = 1;
-                
+
                 return {};
             },
             execute: async function (msg, args) {
+                const { MessageEmbed } = require('discord.js');
                 if (this.objects.helpType === 0) {
-                    const { MessageEmbed } = require('discord.js');
-
-                    const HelpEmbed = new MessageEmbed()
+                    const HelpAllEmbed = new MessageEmbed()
 
                     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
                     .setTitle(`Here are all my commands!`)
@@ -38,9 +37,9 @@ module.exports = class HelpCommand extends Command {
 
                     .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
-                    return msg.channel.send({ embed: HelpEmbed });
+                    return msg.channel.send({ embed: HelpAllEmbed });
                 } else if (this.objects.helpType === 1) {
-
+                    return msg.channel.send(`hi`);
                 } else return undefined;
             },
         });
