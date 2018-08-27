@@ -9,11 +9,11 @@ module.exports = class ArunaClient extends Client {
         }
     }
 
-    set scanDir(cmdDir, evntDir) {
+    scanDir(cmdDir, evntDir) {
 
     }
 
-    set setLocale(locale) {
-        
+    setLocale(locale) {
+
     }
 }

@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "cd src && node app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
