@@ -28,8 +28,13 @@ module.exports = class HelpCommand extends Command {
                 const HelpEmbed = new MessageEmbed()
 
                 .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
+                .setTitle(`Here are all my commands!`)
+                .setURL(`https://github.com/caelinj/Aruna`)
+                .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
 
-                .setFooter(`Help requested by ${msg.author.tag}`)
+                .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
+
+                .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
                 return msg.channel.send({ embed: HelpEmbed });
             },
