@@ -1,6 +1,7 @@
 const Command = require('../structures/Command.js');
 
 const prefixes = require('../config.json').prefixes;
+const emojis = require('../static/json/emojiMap.json');
 
 module.exports = class HelpCommand extends Command {
     constructor() {
@@ -37,7 +38,7 @@ module.exports = class HelpCommand extends Command {
 
                     .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
 
-                    .addField(`Links`, `.`)
+                    .addField(`Links`, `${emojis.github === "" ? '🔗' : emojis.github} GitHub \\➡ https://github.com/caelinj/Aruna`)
 
                     .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
