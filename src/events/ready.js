@@ -1,8 +1,9 @@
 const { activityChangeRate, activities } = require('../config');
 
 const changeActivity = async (activities) => {
-    const [name, type] = activities[Math.floor(Math.random() * activities.length)];
-    client.user.setActivity(`${name}`, { type: type });
+    let [name, type] = activities[Math.floor(Math.random() * activities.length)];
+    let activityName = name.replace(/{client-name}/g, client.user.username).replace(/{servers}/g, `${client.guilds.size} servers${client.guilds.size > 1 ? 's' : ''}`);
+    client.user.setActivity(`${activityName}`, { type: type });
 }
 
 module.exports = (client) => {
