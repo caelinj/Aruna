@@ -1,4 +1,4 @@
-![Image](https://pre00.deviantart.net/4e66/th/pre/i/2015/265/e/b/aisaka_taiga_chibi_by_imsofiawbu-d9199qa.png)
+![Image](https://raw.githubusercontent.com/caelinj/Aruna/master/assets/github-banner.png)
 # Aruna
 A Discord bot made for everyone, helping your server with lots of features, such as fun, music and information!
 
