@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/caelinj/Aruna/issues"
   },
-  "homepage": "https://github.com/caelinj/Aruna#readme"
+  "homepage": "https://github.com/caelinj/Aruna#readme",
+  "devDependencies": {
+    "discord.js": "github:discordjs/discord.js"
+  }
 }
