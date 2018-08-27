@@ -1,7 +1,8 @@
 const prefixes = require('../config.json').prefixes;
 
 module.exports = async (client, msg) => {
-    const prefix = prefixes.find(pre => msg.content.startsWith(pre.replace(/{client-id}/g, client.user.id)));
+    prefixes[prefixes.indexOf(prefixes.find(p => p === '<@{client-id}> ') || 1)].replace(/{client-id}/g, client.user.id);
+    const prefix = prefixes.find(pre => msg.content.startsWith(pre));
     
     if (!prefix || msg.author.bot || !msg.guild) return;
 
