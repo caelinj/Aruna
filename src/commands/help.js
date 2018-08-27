@@ -11,32 +11,37 @@ module.exports = class HelpCommand extends Command {
                 'help ping',
                 'help General'
             ],
+            category: 'General',
 
             objects: {
-                helpType: null,
+                helpType: 0,
             },
     
             beforeRun: async function (msg, args) {
                 if (!args) this.objects.helpType = 0
                 else this.objects.helpType = 1;
-
+                
                 return {};
             },
             execute: async function (msg, args) {
-                const { MessageEmbed } = require('discord.js');
+                if (this.objects.helpType === 0) {
+                    const { MessageEmbed } = require('discord.js');
 
-                const HelpEmbed = new MessageEmbed()
+                    const HelpEmbed = new MessageEmbed()
 
-                .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
-                .setTitle(`Here are all my commands!`)
-                .setURL(`https://github.com/caelinj/Aruna`)
-                .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
+                    .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
+                    .setTitle(`Here are all my commands!`)
+                    .setURL(`https://github.com/caelinj/Aruna`)
+                    .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
 
-                .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
+                    .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
 
-                .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
+                    .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
-                return msg.channel.send({ embed: HelpEmbed });
+                    return msg.channel.send({ embed: HelpEmbed });
+                } else if (this.objects.helpType === 1) {
+
+                } else return undefined;
             },
         });
     }
