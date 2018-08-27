@@ -1,4 +1,10 @@
 {
     "token": "",
-    "prefixes": ["a!", "<@{client-id}> ", "whatever prefixes you want"]
+    "prefixes": ["a!", "<@{client-id}> ", "whatever prefixes you want"],
+    "activityChangeRate": 30,
+    "activities": [
+        ["with my buddies!", "PLAYING"],
+        ["out for @{client-name} help", "WATCHING"],
+        ["in {servers}!", "PLAYING"]
+    ]
 }
