@@ -1,6 +1,6 @@
 const Command = require('../structures/Command.js');
 
-const prefixes = require('./config.json').prefixes;
+const prefixes = require('../config.json').prefixes;
 
 module.exports = class HelpCommand extends Command {
     constructor() {
