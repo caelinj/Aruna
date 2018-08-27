@@ -37,7 +37,7 @@ module.exports = class HelpCommand extends Command {
 
                     .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
 
-                    .addField(`Oh hey, look at this!`, `Aruna is a **fully open source bot**; meaning not only can you use the code (with credit), learn from it and contribute, but you can even host your own version of Aruna! [Click here to get started](https://github.com/caelinj/Aruna#readme)!`)
+                    .addField(`Links`, `.`)
 
                     .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
