@@ -25,3 +25,27 @@ Translations are greatly appreciated - if you can. Simply going onto Google Tran
 
 ### I can't do any of that
 Aww.. that's okay. You can still support and contribute to Asuna! General typo fixes and little improvements like whitespace fixes are appreciated, as well as a *star on the repo* or an [*upvote*]() to help Aruna grow. And - domations are welcome too~!!
+
+## Hosting your own version
+Aruna is open source, and therefore free for you to host your own version, whether it's for a private, self-branded version for your anime server, for development and testing if you want to contribute, or anything really - as long as it follows the [self hosting agreements](). I'd also appreciate it if you don't remove credit from any of the commands, or majorly change the bot and host it publicly. Adding to bot lists as well is a big no-no.
+
+If you do want to continue however, yay~! Firstly, clone the repository to your directory (ie. your Desktop):
+```
+/$ git clone https://github.com/caelinj/Aruna.git
+```
+Next, cd into the newly cloned folder and install the required modules:
+```
+/$ cd Aruna
+/aruna/$ npm install
+```
+Finally, fill out the details in `src/config.json.example`, rename it to `config.json` (making sure it is a **valid** `json` file), and start the bot!
+```
+/aruna/$ node .
+```
+> If `node .` fails for you, you can run `cd src` from the main folder and run `node app.js` to manually run it.
+Using a process manager like `pm2` is also recommended, that way if the bot crashes or your internet goes down, Aruna will boot back up in seconds! :tada:
+```
+/aruna/$ npm install pm2 --save
+/aruna/$ cd src
+/aruna/$ pm2 start app.js --name "aruna"
+```
