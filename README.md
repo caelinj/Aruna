@@ -18,7 +18,7 @@ Please report any bugs in the [Discord server](https://discord.gg/tNymTcj).
 Woah~! There's a few ways you can contribute to Aruna development:
 
 ### General code improvements, and major additions/fixes
-All code **must** follow the [contribution guide]() (<-- click there to find it) to be accepted. Simple fixes like changing formatting or using a different method will not be accepted unless it improves the bot somehow (ie. making it quicker or tidying up code). Major changes must be made stable and follow the general flow/look of the bot, as an example, adding a random command that doesn't fit into an existing category or topic won't be accepted.
+All code **must** follow the [contribution guide](https://github.com/caelinj/Aruna/blob/master/contributing.md) (<-- click there to find it) to be accepted. Simple fixes like changing formatting or using a different method will not be accepted unless it improves the bot somehow (ie. making it quicker or tidying up code). Major changes must be made stable and follow the general flow/look of the bot, as an example, adding a random command that doesn't fit into an existing category or topic won't be accepted.
 
 ### Translations to different locales
 Translations are greatly appreciated - if you can. Simply going onto Google Translate and pasting stuff in won't be accepted, I can do that myself, but it isn't accurate, can bug probably, and honestly just isn't cool, it's cheating. I'm looking for actual native speaking users that can translate the bot alltogether easily. If you want to, add me on Discord at `caelin#3152`, or [join the support server](https://discord.gg/tNymTcj), and we can have a chat.
@@ -27,7 +27,7 @@ Translations are greatly appreciated - if you can. Simply going onto Google Tran
 Aww.. that's okay. You can still support and contribute to Asuna! General typo fixes and little improvements like whitespace fixes are appreciated, as well as a *star on the repo* or an [*upvote*]() to help Aruna grow. And - domations are welcome too~!!
 
 ## Hosting your own version
-Aruna is open source, and therefore free for you to host your own version, whether it's for a private, self-branded version for your anime server, for development and testing if you want to contribute, or anything really - as long as it follows the [self hosting agreements](). I'd also appreciate it if you don't remove credit from any of the commands, or majorly change the bot and host it publicly. Adding to bot lists as well is a big no-no.
+Aruna is open source, and therefore free for you to host your own version, whether it's for a private, self-branded version for your anime server, for development and testing if you want to contribute, or anything really - as long as it follows the [self hosting agreements](https://github.com/caelinj/Aruna/blob/master/self-hosting_agreements.md). I'd also appreciate it if you don't remove credit from any of the commands, or majorly change the bot and host it publicly. Adding to bot lists as well is a big no-no.
 
 If you do want to continue however, yay~! Firstly, clone the repository to your directory (ie. your Desktop):
 ```

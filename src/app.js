@@ -6,5 +6,5 @@ const Client = new ArunaClient({
 });
 
 Client.setLocale('en-US');
-Client.scanDir('./commands', './events');
+Client.scanDir('../commands', '../events');
 global.client = Client;
