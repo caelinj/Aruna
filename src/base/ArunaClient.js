@@ -33,7 +33,7 @@ module.exports = class ArunaClient extends Client {
         
             try {
                 const file = require('.' + evntDir + `/${ev.split('.')[0]}`); 
-                this.on(ev.split('.')[0], file.bind(null, client));
+                this.on(ev.split('.')[0], file.bind(null, this));
                 
                 delete require.cache[require.resolve('.' + evntDir + `/${ev.split('.')[0]}`)];
             }
