@@ -2,7 +2,7 @@ const { activityChangeRate, activities } = require('../config');
 
 const changeActivity = async (activities) => {
     let [name, type] = activities[Math.floor(Math.random() * activities.length)];
-    let activityName = name.replace(/{client-name}/g, client.user.username).replace(/{servers}/g, `${client.guilds.size} servers${client.guilds.size > 1 ? 's' : ''}`);
+    let activityName = name.replace(/{client-name}/g, client.user.username).replace(/{servers}/g, `${client.guilds.size} server${client.guilds.size > 1 ? 's' : ''}`);
     client.user.setActivity(`${activityName}`, { type: type });
 }
 
