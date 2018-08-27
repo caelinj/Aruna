@@ -1,4 +1,4 @@
-const { Client } = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 
 module.exports = class ArunaClient extends Client {
@@ -7,6 +7,8 @@ module.exports = class ArunaClient extends Client {
 
         this.defaultLocale = 'en-US';
         this.locale = null;
+
+        this.commands = new Collection();
 
         if (options.connect) {
             this.login(options.token);
@@ -19,7 +21,7 @@ module.exports = class ArunaClient extends Client {
         
             try {
                 const file = require('.' + cmdDir + '/' + cmd);
-                client.commands.set(file.name, file);
+                this.commands.set(file.name, file);
             }
             catch (err) {
                 console.error(err);
@@ -31,7 +33,7 @@ module.exports = class ArunaClient extends Client {
         
             try {
                 const file = require('.' + evntDir + `/${ev.split('.')[0]}`); 
-                client.on(ev.split('.')[0], file.bind(null, client));
+                this.on(ev.split('.')[0], file.bind(null, client));
                 
                 delete require.cache[require.resolve('.' + evntDir + `/${ev.split('.')[0]}`)];
             }
