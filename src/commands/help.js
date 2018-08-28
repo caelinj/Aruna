@@ -7,7 +7,6 @@ const categories = {
     general: {
         name: 'General',
         description: 'General or non-sorted commands. Usually meta-related or basic, includes commands such as `help` and `ping`.',
-        totalCmds: client.commands.filter(c => c.category === 'General').size,
     },
 }
 
@@ -52,13 +51,14 @@ module.exports = class HelpCommand extends Command {
                     if (categories[args.join(' ').toLowerCase()]) {
                         let category = categories[args.join(' ').toLowerCase()];
                         if (!category) return;
+                        let totalCmds = client.commands.filter(c => c.category === category.name).size;
 
                         const HelpCatEmbed = new MessageEmbed()
 
                         .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
                         .setTitle(client.commands.map(cmd => `Help for category \`${category.name}\`:`))
                         .setDescription(category.description)
-                        .addField(`Total commands`, `${category.totalCmds} command${category.totalCmds > 1 ? 's' : ''}`, true)
+                        .addField(`Total commands`, `${totalCmds} command${totalCmds > 1 ? 's' : ''}`, true)
                         .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
                         return msg.channel.send({ embed: HelpCatEmbed });
