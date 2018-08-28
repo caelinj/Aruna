@@ -20,13 +20,13 @@ module.exports = class HelpCommand extends Command {
                 helpType: 0,
             },
     
-            beforeRun: async function (msg, args) {
+            beforeRun: async(msg, args) => {
                 if (!args.length) this.objects.helpType = 0
                 else this.objects.helpType = 1;
 
                 return {};
             },
-            execute: async function (msg, args) {
+            execute: async(msg, args) => {
                 const { MessageEmbed } = require('discord.js');
                 if (this.objects.helpType === 0) {
                     const HelpAllEmbed = new MessageEmbed()
