@@ -69,7 +69,7 @@ module.exports = class HelpCommand extends Command {
                         const HelpCmdEmbed = new MessageEmbed()
 
                         .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
-                        .setTitle(client.commands.map(cmd => `Help for command \`${command.name}\`:`))
+                        .setTitle(`Help for command \`${command.name}\`:`)
                         .setDescription(command.description)
                         .addField(`Usage`, command.usage.length === 0 ? 'No usage examples.' : command.usage.map(u => `\`${prefixes[0]}${u}\``).join('\n'), true)
                         .addField(`Aliases`, command.aliases.length === 0 ? 'No aliases.' : command.aliases.map(a => `\`${a}\``).join(', '), true)
