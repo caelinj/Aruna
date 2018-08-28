@@ -1,5 +1,9 @@
 const Command = require('../structures/Command');
 
+const getRndInteger = (min, max) => {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
 module.exports = class PickCommand extends Command {
     constructor() {
         super({
