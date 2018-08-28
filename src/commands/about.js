@@ -31,8 +31,8 @@ module.exports = class AboutCommand extends Command {
                 .setDescription(`Introducing Aruna: A Discord bot made for everyone, helping your server with lots of features, such as fun commands, music and information/utility commands!`)
 
                 .addField('Made by', `[caelin#3152](https://github.com/caelinj)`, true)
-                .addField('Servers', client.guilds.size, true)
-                .addField('Version', `v${require('../../package.json').version}`, true)
+                .addField('Servers', `${client.guilds.size} server${client.guilds.size > 1 ? 's' : ''}`, true)
+                .addField('Package version', `v${require('../../package.json').version}`, true)
                 .addField('Total commands', `${client.commands.size} command${client.commands.size > 1 ? 's' : ''}`, true)
                 .addField('Node.js version', process.version, true)
                 .addField('v8 Version', process.versions.v8.substr(0, 10), true)
