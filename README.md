@@ -24,7 +24,7 @@ All code **must** follow the [contribution guide](https://github.com/caelinj/Aru
 Translations are greatly appreciated - if you can. Simply going onto Google Translate and pasting stuff in won't be accepted, I can do that myself, but it isn't accurate, can bug probably, and honestly just isn't cool, it's cheating. I'm looking for actual native speaking users that can translate the bot alltogether easily. If you want to, add me on Discord at `caelin#3152`, or [join the support server](https://discord.gg/tNymTcj), and we can have a chat.
 
 ### I can't do any of that
-Aww.. that's okay. You can still support and contribute to Asuna! General typo fixes and little improvements like whitespace fixes are appreciated, as well as a *star on the repo* or an [*upvote*]() to help Aruna grow. And - domations are welcome too~!!
+Aww.. that's okay. You can still support and contribute to Asuna! General typo fixes and little improvements like whitespace fixes are appreciated, as well as a *star on the repo* or an [*upvote*]() to help Aruna grow. And - donations are welcome too!!
 
 ## Hosting your own version
 Aruna is open source, and therefore free for you to host your own version, whether it's for a private, self-branded version for your anime server, for development and testing if you want to contribute, or anything really - as long as it follows the [self hosting agreements](https://github.com/caelinj/Aruna/blob/master/self-hosting_agreements.md). I'd also appreciate it if you don't remove credit from any of the commands, or majorly change the bot and host it publicly. Adding to bot lists as well is a big no-no.
@@ -40,9 +40,9 @@ Next, cd into the newly cloned folder and install the required modules:
 ```
 Finally, fill out the details in `src/config.json.example`, rename it to `config.json` (making sure it is a **valid** `json` file), and start the bot!
 ```
-/aruna/$ node .
+/aruna/$ cd src
+/aruna/src/$ node app.js
 ```
-> If `node .` fails for you, you can run `cd src` from the main folder and run `node app.js` to manually run it.
 Using a process manager like `pm2` is also recommended, that way if the bot crashes or your internet goes down, Aruna will boot back up in seconds! :tada:
 ```
 /aruna/$ npm install pm2 --save
