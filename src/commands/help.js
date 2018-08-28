@@ -8,6 +8,10 @@ const categories = {
         name: 'General',
         description: 'General or non-sorted commands. Usually meta-related or basic, includes commands such as `help` and `ping`.',
     },
+    health: {
+        name: "Bot Health & Statistics",
+        description: "Commands relating to the bot's health, as well as statistics.",
+    },
 }
 
 module.exports = class HelpCommand extends Command {
@@ -41,8 +45,10 @@ module.exports = class HelpCommand extends Command {
                     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
                     .setTitle(`Here are all my commands!`)
                     .setURL(`https://github.com/caelinj/Aruna`)
-                    .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
+                    .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. ` +
+                                    `Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
                     .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
+                    .addField(`Bot Health & Statistics`, client.commands.filter(c => c.category === 'Bot Health & Statistics').map(cmd => `\`${cmd.name}\``).join(' '))
                     .addField(`Links`, `${emojis.github === "" ? '🔗' : emojis.github} GitHub \\➡ https://github.com/caelinj/Aruna`)
                     .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
@@ -56,7 +62,7 @@ module.exports = class HelpCommand extends Command {
                         const HelpCatEmbed = new MessageEmbed()
 
                         .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
-                        .setTitle(client.commands.map(cmd => `Help for category \`${category.name}\`:`))
+                        .setTitle(`Help for category \`${category.name}\`:`)
                         .setDescription(category.description)
                         .addField(`Total commands`, `${totalCmds} command${totalCmds > 1 ? 's' : ''}`, true)
                         .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))

@@ -6,11 +6,11 @@ const version = require("../../package.json").version;
 module.exports = class InfoCommand extends Command {
     constructor() {
         super({
-            name: "info",
-            description: "Retrieves various information about Aruna.",
+            name: 'info',
+            description: 'Retrieves various information about Aruna.',
             aliases: ['about'],
-            usage: ["info"],
-            category: "General",
+            usage: ['info'],
+            category: 'Bot Health & Statistics',
             objects: {},
 
             beforeRun: async(msg, args) => {
