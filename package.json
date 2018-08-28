@@ -36,7 +36,8 @@
   },
   "homepage": "https://github.com/caelinj/Aruna#readme",
   "devDependencies": {
-    "discord.js": "github:discordjs/discord.js"
+    "discord.js": "github:discordjs/discord.js",
+    "nodemon": "^1.18.3"
   },
   "dependencies": {
     "humanize-duration": "^3.15.1",
