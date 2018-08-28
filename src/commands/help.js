@@ -56,7 +56,7 @@ module.exports = class HelpCommand extends Command {
                         const HelpCatEmbed = new MessageEmbed()
 
                         .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
-                        .setTitle(client.commands.map(cmd => `Help for category \`${category.name}\`:`))
+                        .setTitle(`Help for category \`${category.name}\`:`)
                         .setDescription(category.description)
                         .addField(`Total commands`, `${totalCmds} command${totalCmds > 1 ? 's' : ''}`, true)
                         .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
