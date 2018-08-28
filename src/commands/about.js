@@ -36,7 +36,7 @@ module.exports = class AboutCommand extends Command {
 
                 .addField('Servers', `${client.guilds.size} server${client.guilds.size > 1 ? 's' : ''}`, true)
                 .addField('Users', `${client.guilds.map(g => g.memberCount).reduce((f, l) => f + l)} user${client.guilds.map(g => g.memberCount).reduce((f, l) => f + l) > 1 ? 's' : ''}`, true)
-                .addField('Channels', `${client.channels.size} channel${client.channel.size > 1 ? 's' : ''}`, true)
+                .addField('Channels', `${client.channels.size} channel${client.channels.size > 1 ? 's' : ''}`, true)
 
                 .addField('Memory usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}mb`, true)
                 .addField('Total commands', `${client.commands.size} command${client.commands.size > 1 ? 's' : ''}`, true)
