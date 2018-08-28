@@ -14,6 +14,10 @@ const categories = {
         name: 'Utility',
         description: 'Commands that serve a utility purpose, such as information, searching, and related.',
     },
+    fun: {
+        name: 'Fun',
+        description: 'Where all the fun happens! Commands that are for entertainment and enjoyment all go here.',
+    },
 }
 
 module.exports = class HelpCommand extends Command {
@@ -46,11 +50,14 @@ module.exports = class HelpCommand extends Command {
                     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
                     .setTitle(`Here are all my commands!`)
                     .setURL(`https://github.com/caelinj/Aruna`)
-                    .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. ` +
-                                    `Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
+                    .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
+                    
                     .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
                     .addField(`Utility`, client.commands.filter(c => c.category === 'Utility').map(cmd => `\`${cmd.name}\``).join(' '))
+                    .addField(`Fun`, client.commands.filter(c => c.category === 'Fun').map(cmd => `\`${cmd.name}\``).join(' '))
+
                     .addField(`Links`, `${emojis.github === "" ? '🔗' : emojis.github} GitHub \\➡ https://github.com/caelinj/Aruna`)
+
                     .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
                     return msg.channel.send({ embed: HelpAllEmbed });

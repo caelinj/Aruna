@@ -4,7 +4,7 @@ const { MessageAttachment } = require('discord.js');
 const { get } = require('snekfetch');
 const { Canvas } = require('canvas-constructor');
 
-module.exports = class PingCommand extends Command {
+module.exports = class ProfileCommand extends Command {
     constructor() {
         super({
             name: 'profile',
