@@ -4,7 +4,7 @@ module.exports = class AboutCommand extends Command {
     constructor() {
         super({
             name: 'about',
-            description: 'Retrieves various information about Aruna.',
+            description: 'Retrieves various information and statistics about Aruna.',
             aliases: ['info', 'botinfo'],
             usage: [
                 'about'
