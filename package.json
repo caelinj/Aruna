@@ -37,5 +37,9 @@
   "homepage": "https://github.com/caelinj/Aruna#readme",
   "devDependencies": {
     "discord.js": "github:discordjs/discord.js"
+  },
+  "dependencies": {
+    "humanize-duration": "^3.15.1",
+    "snekfetch": "^4.0.4"
   }
 }

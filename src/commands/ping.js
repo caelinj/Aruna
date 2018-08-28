@@ -28,7 +28,7 @@ module.exports = class PingCommand extends Command {
                 .addField('Websocket', `${Math.round(client.ping)}ms`, true)
                 .addField('Latency', `${latency}ms`, true)
 
-                .setFooter(`Current bot health is ${latency < 250 ? 'perfect [0/3]' : latency < 500 ? 'okay [1/3]' : latency > 1000 ? 'lookin\' bad, possible outage [3/3]' : 'not too good [2/3]'}`)
+                .setFooter(`Current bot health is ${latency < 250 ? 'perfect [within 250ms]' : latency < 500 ? 'okay [within 500ms]' : latency > 1000 ? 'lookin\' bad, possible outage [greater than 1000ms]' : 'on the slow side [within 501-999ms]'}`)
                 
                 m.edit({ embed: PingEmbed });
             },
