@@ -1,5 +1,7 @@
 const Command = require('../structures/Command.js');
 
+const { MessageEmbed } = require('discord.js');
+
 const prefixes = require('../config.json').prefixes;
 const emojis = require('../static/json/emojiMap.json');
 
@@ -38,7 +40,6 @@ module.exports = class HelpCommand extends Command {
                 return {};
             },
             execute: async (msg, args) => {
-                const { MessageEmbed } = require('discord.js');
                 if (this.objects.helpType === 0) {
                     const HelpAllEmbed = new MessageEmbed()
 

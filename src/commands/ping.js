@@ -13,11 +13,11 @@ module.exports = class PingCommand extends Command {
 
             objects: {},
 
-            beforeRun: async(msg, args) => {
+            beforeRun: async (msg, args) => {
                 return {};
             },
             
-            execute: async(msg, args) => {
+            execute: async (msg, args) => {
                 const m = await msg.channel.send('Ping?');
                 const latency = Math.round(m.createdTimestamp - msg.createdTimestamp);
 

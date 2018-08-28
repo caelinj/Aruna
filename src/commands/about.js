@@ -1,4 +1,6 @@
-const Command = require("../structures/Command");
+const Command = require('../structures/Command');
+
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class AboutCommand extends Command {
     constructor() {
@@ -13,13 +15,11 @@ module.exports = class AboutCommand extends Command {
             
             objects: {},
 
-            beforeRun: async(msg, args) => {
+            beforeRun: async (msg, args) => {
                 return {};
             },
 
-            execute: async(msg, args) => {
-                const { MessageEmbed } = require("discord.js")
-
+            execute: async (msg, args) => {
                 const AboutEmbed = new MessageEmbed()
                 
                 .setAuthor(`About ${client.user.username}`, client.user.displayAvatarURL({ format: 'png', size: 512 }))
