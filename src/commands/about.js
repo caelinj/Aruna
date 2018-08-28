@@ -40,7 +40,7 @@ module.exports = class AboutCommand extends Command {
 
                 .addField('Memory usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}mb`, true)
                 .addField('Total commands', `${client.commands.size} command${client.commands.size > 1 ? 's' : ''}`, true)
-                .addField('Total commits', `${latestCommit.length} commit${latestCommit.length > 1 ? 's' : ''}`, true)
+                .addField('Total dependencies', `${require('../../package.json').dependencies.size} dependencies`, true)
 
                 .addField('Package version', `v${require('../../package.json').version}`, true)
                 .addField('Node.js version', process.version, true)
