@@ -2,6 +2,7 @@ const Command = require('../structures/Command');
 
 const { MessageEmbed } = require('discord.js');
 const { get } = require('snekfetch');
+const humanize = require('humanize-duration');
 
 module.exports = class AboutCommand extends Command {
     constructor() {
@@ -37,7 +38,7 @@ module.exports = class AboutCommand extends Command {
                 .addField('v8 Version', process.versions.v8.substr(0, 10), true)
                 .addField('Memory usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}mb`, true)
                 .addField('Latest commit', `[\`${latestCommit[0].sha.substr(0, 7)}\`](${latestCommit[0].html_url})`, true)
-                .addField('Uptime', ``, true)
+                .addField('Uptime', humanize(client.uptime, { largest: 1, round: true }), true)
 
                 return msg.channel.send({ embed: AboutEmbed });
             },
