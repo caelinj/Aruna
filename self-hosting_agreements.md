@@ -10,3 +10,5 @@ When self-hosting.. you agree:
 - To not remove any credit to me (Caelin Jai) or any contributors/libraries.
 - To not break the MIT Licence the bot has been put under.
 - To not claim any single part of the open source code as your own. Self made commands and content is fine.
+
+> Even if your hosting a copy for development, for testing of PR'd features or anything, you still agree fully to the self-hosting agreements.
