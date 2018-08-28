@@ -3,6 +3,14 @@ const Command = require('../structures/Command.js');
 const prefixes = require('../config.json').prefixes;
 const emojis = require('../static/json/emojiMap.json');
 
+const categories = {
+    general: {
+        name: 'General',
+        description: 'General or non-sorted commands. Usually meta-related or basic, includes commands such as `help` and `ping`.',
+        totalCmds: client.commands.filter(c => c.category === 'General').size,
+    },
+}
+
 module.exports = class HelpCommand extends Command {
     constructor() {
         super({
@@ -20,13 +28,13 @@ module.exports = class HelpCommand extends Command {
                 helpType: 0,
             },
     
-            beforeRun: async(msg, args) => {
+            beforeRun: async (msg, args) => {
                 if (!args.length) this.objects.helpType = 0
                 else this.objects.helpType = 1;
 
                 return {};
             },
-            execute: async(msg, args) => {
+            execute: async (msg, args) => {
                 const { MessageEmbed } = require('discord.js');
                 if (this.objects.helpType === 0) {
                     const HelpAllEmbed = new MessageEmbed()
@@ -41,15 +49,35 @@ module.exports = class HelpCommand extends Command {
 
                     return msg.channel.send({ embed: HelpAllEmbed });
                 } else if (this.objects.helpType === 1) {
-                    const CmdHelpEmbed = new MessageEmbed()
+                    if (categories[args.join(' ').toLowerCase()]) {
+                        let category = categories[args.join(' ').toLowerCase()];
+                        if (!category) return;
 
-                    .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
-                    .setTitle(client.commands.map(cmd => `Help for command \`${cmd.name}\``))
-                    .setDescription(client.commands.map(cmd => `${cmd.description}`))
-                    .addField(`Links`, `${emojis.github === "" ? '🔗' : emojis.github} GitHub \\➡ https://github.com/caelinj/Aruna`)
-                    .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
+                        const HelpCatEmbed = new MessageEmbed()
 
-                    return msg.channel.send({ embed: CmdHelpEmbed });
+                        .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
+                        .setTitle(client.commands.map(cmd => `Help for category \`${category.name}\`:`))
+                        .setDescription(category.description)
+                        .addField(`Total commands`, `${category.totalCmds} command${category.totalCmds > 1 ? 's' : ''}`, true)
+                        .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
+
+                        return msg.channel.send({ embed: HelpCatEmbed });
+                    } else {
+                        let command = client.commands.get(args[0]) || client.commands.find(c => c.aliases && c.aliases.includes(args[0]));
+                        if (!command) return;
+
+                        const HelpCmdEmbed = new MessageEmbed()
+
+                        .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', size: 512 }))
+                        .setTitle(client.commands.map(cmd => `Help for command \`${command.name}\`:`))
+                        .setDescription(command.description)
+                        .addField(`Usage`, command.usage.length === 0 ? 'No usage examples.' : command.usage.map(u => `\`${prefixes[0]}${u}\``).join('\n'), true)
+                        .addField(`Aliases`, command.aliases.length === 0 ? 'No aliases.' : command.aliases.map(a => `\`${a}\``).join(', '), true)
+                        .addField(`Category`, command.category || 'Unknown?', true)
+                        .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
+
+                        return msg.channel.send({ embed: HelpCmdEmbed });
+                    }
                 } else return undefined;
             },
         });
