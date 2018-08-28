@@ -31,14 +31,20 @@ module.exports = class AboutCommand extends Command {
                 .setDescription(`Introducing Aruna: A Discord bot made for everyone, helping your server with lots of features, such as fun commands, music and information/utility commands!`)
 
                 .addField('Made by', `[caelin#3152](https://github.com/caelinj)`, true)
-                .addField('Servers', `${client.guilds.size} server${client.guilds.size > 1 ? 's' : ''}`, true)
-                .addField('Package version', `v${require('../../package.json').version}`, true)
-                .addField('Total commands', `${client.commands.size} command${client.commands.size > 1 ? 's' : ''}`, true)
-                .addField('Node.js version', process.version, true)
-                .addField('v8 Version', process.versions.v8.substr(0, 10), true)
-                .addField('Memory usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}mb`, true)
                 .addField('Latest commit', `[\`${latestCommit[0].sha.substr(0, 7)}\`](${latestCommit[0].html_url})`, true)
                 .addField('Uptime', humanize(client.uptime, { largest: 1, round: true }), true)
+
+                .addField('Servers', `${client.guilds.size} server${client.guilds.size > 1 ? 's' : ''}`, true)
+                .addField('Users', `${client.guilds.map(g => g.memberCount).reduce((f, l) => f + l)} user${client.guilds.map(g => g.memberCount).reduce((f, l) => f + l) > 1 ? 's' : ''}`, true)
+                .addField('Channels', `${client.channels.size} channel${client.channel.size > 1 ? 's' : ''}`, true)
+
+                .addField('Memory usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}mb`, true)
+                .addField('Total commands', `${client.commands.size} command${client.commands.size > 1 ? 's' : ''}`, true)
+                .addField('Total commits', `${latestCommit.length} commit${latestCommit.length > 1 ? 's' : ''}`, true)
+
+                .addField('Package version', `v${require('../../package.json').version}`, true)
+                .addField('Node.js version', process.version, true)
+                .addField('v8 Version', process.versions.v8.substr(0, 10), true)
 
                 return msg.channel.send({ embed: AboutEmbed });
             },
