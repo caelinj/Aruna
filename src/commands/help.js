@@ -8,9 +8,9 @@ const categories = {
         name: 'General',
         description: 'General or non-sorted commands. Usually meta-related or basic, includes commands such as `help` and `ping`.',
     },
-    health: {
-        name: "Bot Health & Statistics",
-        description: "Commands relating to the bot's health, as well as statistics.",
+    utility: {
+        name: 'Utility',
+        description: 'Commands that serve a utility purpose, such as information, searching, and related.',
     },
 }
 
@@ -48,7 +48,7 @@ module.exports = class HelpCommand extends Command {
                     .setDescription(`You can prefix your message with \`${prefixes[0]}\` or \`@${client.user.username}\` to use any of the commands listed here. ` +
                                     `Adding a command or category name on the end of this command will provide information/help for that command or category specifically.`)
                     .addField(`General`, client.commands.filter(c => c.category === 'General').map(cmd => `\`${cmd.name}\``).join(' '))
-                    .addField(`Bot Health & Statistics`, client.commands.filter(c => c.category === 'Bot Health & Statistics').map(cmd => `\`${cmd.name}\``).join(' '))
+                    .addField(`Utility`, client.commands.filter(c => c.category === 'Utility').map(cmd => `\`${cmd.name}\``).join(' '))
                     .addField(`Links`, `${emojis.github === "" ? '🔗' : emojis.github} GitHub \\➡ https://github.com/caelinj/Aruna`)
                     .setFooter(`Help requested by ${msg.author.tag}`, msg.author.displayAvatarURL({ format: 'png', size: 512 }))
 
